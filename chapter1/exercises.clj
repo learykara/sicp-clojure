@@ -452,3 +452,35 @@
 (defn timed-prime-test-next
   [n]
   (= n (smallest-divisor-next n)))
+
+
+;; 1.29
+(defn sum
+  [term a next b]
+  (if (> a b)
+    0
+    (+ (term a) (sum term (next a) next b))))
+
+(defn simpson-integral
+  [f a b n]
+  (def h (/ (- b a) n))
+  (defn next
+    [x]
+    (+ x h))
+  (def c )
+  (* (sum f a next b)
+     (/ h 3)))
+
+
+;; 1.34
+(defn f
+  [g]
+  (g 2))
+
+(f square)
+
+(f (fn [z] (* z (+ z 1))))
+
+(f f)
+(f 2)
+(2 2) ;; attempt to apply 2 to 2. nonsense.
